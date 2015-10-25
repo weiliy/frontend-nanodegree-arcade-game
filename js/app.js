@@ -1,4 +1,10 @@
-// Enemies our player must avoid
+/**
+* @description Represents a Bug
+* @constructor
+* @param {string} sprite - The image URL of the Bug
+* @param {int} x, y - The location of the Bug
+* @param {double} speed - The speed of the Bug
+*/
 var Enemy = function() {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
@@ -30,19 +36,24 @@ Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-// Now write your own player class
-// This class requires an update(), render() and
-// a handleInput() method.
+/**
+* @description Represents a Player
+* @constructor
+* @param {string} sprite - The image URL of the Player
+* @param {int} x, y - The location of the Player
+* @param {int} grade - The score of the Player
+*/
+
 var Player = function() {
     this.sprite = 'images/char-boy.png';
     this.x = 200;
-    this.y = 300;
+    this.y = 380;
     this.grade = 0;
 };
 
 Player.prototype.reset = function() {
     this.x = 200;
-    this.y = 300;
+    this.y = 380;
 };
 
 Player.prototype.end = function() {
