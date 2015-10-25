@@ -21,7 +21,7 @@ Enemy.prototype.update = function(dt) {
     var dis = Math.sqrt(Math.pow((this.x - player.x),2) 
             + Math.pow((this.y - player.y),2));
     if ( dis < 70 ) {
-        player.reset();
+        player.end();
     }
 };
 
@@ -37,23 +37,36 @@ var Player = function() {
     this.sprite = 'images/char-boy.png';
     this.x = 200;
     this.y = 300;
-    this.speed = 1;
+    this.grade = 0;
 };
 
 Player.prototype.reset = function() {
-    console.log( 'reset');
     this.x = 200;
     this.y = 300;
 };
 
+Player.prototype.end = function() {
+    this.grade = 0;
+    this.reset();
+};
+
+Player.prototype.win = function() {
+    this.grade++;
+    this.reset();
+};
+
 Player.prototype.update = function(dt) {
     if ( this.y < 0 ) {
-        this.reset();
+        this.win();
     }
 };
 
 Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+    ctx.fillStyle = "#EFEF00";
+    ctx.font = "30px sans-serif";
+    ctx.fillText("Score: " + this.grade , 300, 550);
+
 };
 
 Player.prototype.handleInput = function(key) {
@@ -74,28 +87,11 @@ Player.prototype.handleInput = function(key) {
             }
             break;
         case "down":
-            if (this.y < 400) {
+            if (this.y < 350) {
                 this.y += 80;
             }
     }
 };
-
-var Score = function() {
-    this.x = 0;
-    this.y = 400;
-    this.grade = 0;
-    this.timer = 0;
-};
-
-Score.prototype.update = function(dt) {
-    this.timer += 100 * dt;
-};
-
-Score.prototype.render = function() {
-    ctx.fillText( "Score: " + this.grade + "\n" +
-            "Timer: " + this.timer, this.x, this.y);
-};
-
 
 
 // Now instantiate your objects.
@@ -105,7 +101,6 @@ var allEnemies = [];
 for (var i = 7; i >= 0; i--) {
     allEnemies.push(new Enemy);
 };
-
 var player = new Player;
 
 // This listens for key presses and sends the keys to your
