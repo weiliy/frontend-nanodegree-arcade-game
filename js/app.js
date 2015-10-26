@@ -1,3 +1,5 @@
+"use strict";
+
 /**
 * @description Represents a Bug
 * @constructor
