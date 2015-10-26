@@ -114,7 +114,7 @@ Player.prototype.handleInput = function(key) {
 var allEnemies = [];
 for (var i = 7; i >= 0; i--) {
     allEnemies.push(new Enemy);
-};
+}
 var player = new Player;
 
 // This listens for key presses and sends the keys to your
