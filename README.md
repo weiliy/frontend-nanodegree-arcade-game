@@ -4,7 +4,7 @@ frontend-nanodegree-arcade-game
 ### How to Start Game
 
 1. Start a **Static Server** using Python's `SimpleHTTPServer`
-2. Start a brower, and open 127.0.0.0:800
+2. Open http://127.0.0.1:8000/ in a web browser (recommend Chrome)
 
 ### How to Play
 
