@@ -77,30 +77,30 @@ Player.prototype.update = function(dt) {
 
 Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-    ctx.fillStyle = "#EFEF00";
-    ctx.font = "30px sans-serif";
-    ctx.fillText("Score: " + this.grade , 300, 550);
+    ctx.fillStyle = '#e5e5e5';
+    ctx.font = '30px sans-serif';
+    ctx.fillText('Score: ' + this.grade , 300, 550);
 
 };
 
 Player.prototype.handleInput = function(key) {
     switch (key) {
-        case "left":
+        case 'left':
             if (this.x > 0) {
                 this.x -= 100;
             }
             break;
-        case "up":
+        case 'up':
             if (this.y > 0) {
                 this.y -= 80;
             }
             break;
-        case "right":
+        case 'right':
             if (this.x < 400) {
                 this.x += 100;
             }
             break;
-        case "down":
+        case 'down':
             if (this.y < 350) {
                 this.y += 80;
             }
