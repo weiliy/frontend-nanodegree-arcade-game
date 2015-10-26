@@ -26,8 +26,8 @@ Enemy.prototype.update = function(dt) {
     // which will ensure the game runs at the same speed for
     // all computers.
     this.x = ( this.x + this.speed * dt ) % 800;
-    var dis = Math.sqrt(Math.pow((this.x - player.x),2) 
-            + Math.pow((this.y - player.y),2));
+    var dis = Math.sqrt(Math.pow((this.x - player.x),2) +
+        Math.pow((this.y - player.y),2));
     if ( dis < 70 ) {
         player.end();
     }
