@@ -16,6 +16,7 @@ var Enemy = function() {
     this.sprite = 'images/enemy-bug.png';
     this.x = -100;
     this.y = Math.floor(Math.random() * 3) * 75 + 75;
+    this.radius = 70
     this.speed = 200 * Math.random() + 20;
 };
 
@@ -28,7 +29,7 @@ Enemy.prototype.update = function(dt) {
     this.x = ( this.x + this.speed * dt ) % 800;
     var dis = Math.sqrt(Math.pow((this.x - player.x),2) +
         Math.pow((this.y - player.y),2));
-    if ( dis < 70 ) {
+    if ( dis < this.radius ) {
         player.end();
     }
 };
